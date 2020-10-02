@@ -30,8 +30,9 @@ Various DataSet:
     https://archive.ics.uci.edu/ml/index.php
     
 Auto as an example:
-    https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data
- 
+    https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data    
+    https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/DA0101EN/auto.csv
+
 ''' 
 3,?,alfa-romero,gas,std,two,convertible,rwd,front,88.60,168.80,64.10,48.80,2548,dohc,four,130,mpfi,3.47,2.68,9.00,111,5000,21,27,13495
 3,?,alfa-romero,gas,std,two,convertible,rwd,front,88.60,168.80,64.10,48.80,2548,dohc,four,130,mpfi,3.47,2.68,9.00,111,5000,21,27,16500
