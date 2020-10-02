@@ -1,3 +1,6 @@
+- Pandas 
+   http://pandas.pydata.org/
+
 
 - Pandas functions
 ------------+------------------+-----------------+----------------------------------------------
@@ -84,8 +87,40 @@ df.info
 # This is because that particular statistical metric cannot be calculated for that specific
 # column data type.
 
-
-
+#################################################
+# Dealing with missing values in Python
+#
+# - Usually “missing value: in dataset” appears as “?”, “N/A”, 0 or just a blank cell.
+#
+# - These are the typical options you can consider:
+#   1. The first is to check if the person or group that collected the data can go back
+#      and find what the actual value should be.
+#   2. Another possibility is just to remove the data where that missing value is found.
+#      When you drop data, you can either drop the whole variable or just the single data
+#      entry with the missing value.
+#      If you don’t have a lot of observations with missing data, usually dropping the particular
+#      entry is the best.
+#      If you’re removing data, you want to look to do something that has the least amount of impact.
+#      Replacing data is better, since no data is wasted.  However, it is less accurate since we need 
+#      to replace missing data with a guess of what the data should be.
+#   3. One standard replacement technique is to replace missing values by the average value of the
+#      entire variable.
+#   4. If the values cannot be averaged, as with categorical variables. ie. the variable values are not numbers.
+#      In this case, one possibility is to try using the most common.
+#   5. in some cases, you may simply want to leave the missing data as missing data.
+#
+# - Drop values. Use dataframes.dropna()
+#       axis=0  drops the entire row
+#       axis=1  drops the entire column
+#    Setting the argument “inplace” to “true” allows the modification to be done on the dataset directly.
+#    “Inplace=True” just writes the result back into the dataframe.
+#       df.dropna(subset=["price"], axis=0, inplace = True)
+#
+# - Replace missing values. Use dataframe.replace(missing_value, new_value) 
+#   by mean value:
+#      mean = df["normalized-losses"].mean()
+#      df["normalized-losses"].replace(np.nan, mean)
+#################################################
 
 
 
