@@ -74,7 +74,7 @@ df.describe()
 df.describe(include="all")
 
 # Another method to check the dataset 
-df.info()
+df.info
 
 # In the summary, 
 # "Unique" is the number of distinct objects in the column, 
