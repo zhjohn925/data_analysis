@@ -120,8 +120,30 @@ df.info
 #   by mean value:
 #      mean = df["normalized-losses"].mean()
 #      df["normalized-losses"].replace(np.nan, mean)
+#
 #################################################
 
+#############################################################################
+# Data Formatting
+# - To identify data types:
+#     dataframe.dtypes()
+# - To convert data types
+#     dataframe.astype()
+#     df["price"] = df["price"].astype("int")
+# - Applying calculations to an entire column
+#   Convert "mpg" to "L/100km" in Car dataset
+#     df["city-mpg"] = 235/df["city-mpg"]
+#     df.rename(columns={"city-mpg": "city-L/100km"}, inplace=True)
+# - Incorrect data types
+#   The wrong data type is assigned to a feature. ie. "object" is not correct type for "price"
+#     df["price"].tail(5)
+#       200    16845
+#       201    19045
+#       ::::::::::
+#       204    22625
+#       Name: price, dtype: object
+#
+#############################################################################
 
 
 
