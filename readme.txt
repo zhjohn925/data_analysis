@@ -48,6 +48,14 @@ Auto as an example:
 import pandas as pd
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data"
 
+#####################################################################
+# On Mac, to workaround the error: ssl.SSLCertVerificationError
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+# Not sure if we need this:
+# pip3 install --upgrade certifi
+#####################################################################
+
 # import dataset without headers
 df = pd.read_csv(url, header = None)
 
