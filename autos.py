@@ -1,5 +1,13 @@
 import pandas as pd
 
+#####################################################################
+# On Mac, to workaround the error: ssl.SSLCertVerificationError
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+# Not sure if we need this:
+# pip3 install --upgrade certifi
+#####################################################################
+
 # Read the online file by the URL provides above, and assign it to variable "df"
 other_path = "https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/DA0101EN/auto.csv"
 df = pd.read_csv(other_path, header=None)
