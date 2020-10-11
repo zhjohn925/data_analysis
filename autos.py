@@ -56,4 +56,80 @@ df[['length', 'compression-ratio']].describe()
 # provide a concise summary of your DataFrame.
 df.info
 
+import numpy as np
 
+# replace "?" to NaN
+df.replace("?", np.nan, inplace = True)
+df.head(5)
+
+# use Python's built-in functions to identify these missing values. 
+missing_data = df.isnull()
+missing_data.head(5)
+
+# Based on the summary above, each column has 205 rows of data, seven columns containing missing data:
+# "normalized-losses": 41 missing data
+# "num-of-doors": 2 missing data
+# "bore": 4 missing data
+# "stroke" : 4 missing data
+# "horsepower": 2 missing data
+# "peak-rpm": 2 missing data
+# "price": 4 missing data          
+for column in missing_data.columns.values.tolist():
+    print(column)
+    print (missing_data[column].value_counts())
+    print("") 
+
+# Calculate the average of the column          
+avg_norm_loss = df["normalized-losses"].astype("float").mean(axis=0)
+print("Average of normalized-losses:", avg_norm_loss)   
+
+# Replace "NaN" by mean value in "normalized-losses" column
+df["normalized-losses"].replace(np.nan, avg_norm_loss, inplace=True)
+          
+# Calculate the mean value for 'bore' column
+avg_bore=df['bore'].astype('float').mean(axis=0)
+print("Average of bore:", avg_bore)
+          
+# Replace NaN by mean value
+df["bore"].replace(np.nan, avg_bore, inplace=True)
+
+# calculate the mean vaule for "stroke" column
+avg_stroke = df["stroke"].astype("float").mean(axis = 0)
+print("Average of stroke:", avg_stroke)
+
+# replace NaN by mean value in "stroke" column
+df["stroke"].replace(np.nan, avg_stroke, inplace = True)
+          
+# Calculate the mean value for the 'horsepower' column:
+avg_horsepower = df['horsepower'].astype('float').mean(axis=0)
+print("Average horsepower:", avg_horsepower)
+          
+# Replace "NaN" by mean value:
+df['horsepower'].replace(np.nan, avg_horsepower, inplace=True)
+          
+# Calculate the mean value for 'peak-rpm' column:
+avg_peakrpm=df['peak-rpm'].astype('float').mean(axis=0)
+print("Average peak rpm:", avg_peakrpm)
+          
+# Replace NaN by mean value:
+df['peak-rpm'].replace(np.nan, avg_peakrpm, inplace=True)     
+          
+# To see which values are present in a particular column, we can use the ".value_counts()" method:
+df['num-of-doors'].value_counts()        
+          
+#  use the ".idxmax()" method to calculate for us the most common type automatically:
+df['num-of-doors'].value_counts().idxmax()
+          
+# The replacement procedure is very similar to what we have seen previously
+#replace the missing 'num-of-doors' values by the most frequent 
+df["num-of-doors"].replace(np.nan, "four", inplace=True)
+          
+# let's drop all rows that do not have price data:
+# simply drop whole row with NaN in "price" column
+df.dropna(subset=["price"], axis=0, inplace=True)
+
+# reset index, because we droped two rows
+df.reset_index(drop=True, inplace=True)
+
+df.head()          
+          
