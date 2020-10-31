@@ -1,0 +1,26 @@
+In [1]: import matplotlib.pyplot as p
+
+In [2]: p.plot(range(20),range(20))
+Out[2]: [<matplotlib.lines.Line2D object at 0xa64932c>]
+
+In [3]: p.show()
+
+# If not seeing plot from the above,  check backend setting in matplotlibrc.
+# Try out different setting may fix the problem 
+
+# backend      : GtkAgg
+backend      : template
+
+>>> import matplotlib
+>>> matplotlib.matplotlib_fname()
+
+# list all the backends available on your machine with
+
+import matplotlib.rcsetup as rcsetup
+print(rcsetup.all_backends)
+
+# It should return a list like:
+
+['GTK', 'GTKAgg', 'GTKCairo', 'FltkAgg', 'MacOSX', 'QtAgg', 'Qt4Agg',
+'TkAgg', 'WX', 'WXAgg', 'CocoaAgg', 'agg', 'cairo', 'emf', 'gdk', 'pdf',
+'ps', 'svg', 'template']
