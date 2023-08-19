@@ -14,3 +14,16 @@ Date
 
 >>> type(hist_data)
 <class 'pandas.core.frame.DataFrame'>
+
+>>> import matplotlib.pyplot as plt
+>>> closing_prices = hist_data['Close']
+>>> plt.plot(closing_prices)
+[<matplotlib.lines.Line2D object at 0x000001833DD3C490>]
+>>> plt.title('Apple Inc. (AAPL) Closing Prices')
+Text(0.5, 1.0, 'Apple Inc. (AAPL) Closing Prices')
+>>> plt.xlabel('Date')
+Text(0.5, 0, 'Date')
+>>> plt.ylabel('Closing Price (USD)')
+Text(0, 0.5, 'Closing Price (USD)')
+>>> plt.show()
+>>>
