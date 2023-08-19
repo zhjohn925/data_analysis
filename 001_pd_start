@@ -1,8 +1,18 @@
 - Pandas 
    http://pandas.pydata.org/
+   $ pip install pandas
 
+It gives:
+   Information Graphics
+   Information Visualization
+   Statistical Graphics
+
+- list the functions in modules
+   >>> import pandas as pd
+   >>> dir(pd)
 
 - Pandas functions
+FIRST OF ALL: Create dataframe from different data source.
 ------------+------------------+-----------------+----------------------------------------------
 Data Format |  Read            |  Save           |  Comments
 ------------+------------------+-----------------+----------------------------------------------
@@ -14,7 +24,7 @@ sql         |  pd.read_sql()   |  df.to_sql()    |
 
 - Basic Insights of Dataset (Data types)
   Use dataframe.dtypes to check data types
-  df.dtypes
+  >>> df.dtypes
 -------------------------------+------------------------------------------+----------------------------------------
 Pandas Type :                  | Native Python Type :                     | Description :                      
 -------------------------------+------------------------------------------+----------------------------------------
@@ -30,7 +40,7 @@ Pandas Type :                  | Native Python Type :                     | Desc
 
 
 Various DataSet: 
-    https://archive.ics.uci.edu/ml/index.php
+   https://archive.ics.uci.edu/datasets
     
 Auto as an example:
     https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data    
@@ -50,6 +60,7 @@ url = "https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-8
 
 # import dataset without headers
 df = pd.read_csv(url, header = None)
+df = pd.read_csv(url, index_col=6, header = None)   # specify which column as index
 
 #Replace default header by df.columns = headers
 headers = ["symboling", "normalized-losses", "make", "fuel-type", "aspiration", "num-of-doors", "body-style",
