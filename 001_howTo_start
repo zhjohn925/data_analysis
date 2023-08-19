@@ -1,6 +1,7 @@
 - Pandas 
    http://pandas.pydata.org/
    $ pip install pandas
+   $ pip install matplotlib 
 
 It gives:
    Information Graphics
