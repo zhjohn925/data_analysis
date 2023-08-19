@@ -1,0 +1,15 @@
+# Create your own data frame
+
+>>> subjects = ["Mathematics", "Chemistry", "Physics", "History", "Geography", "English"]
+>>> grades = [99, 70, 60, 66, 88]
+>>> sSeries = pd.Series(subjects)
+>>> gSeries = pd.Series(grades)
+>>> df1 = pd.DataFrame({"Subjects" : sSeries, "Grades" : gSeries})
+>>> df1.head()
+      Subjects  Grades
+0  Mathematics    99.0
+1    Chemistry    70.0
+2      Physics    60.0
+3      History    66.0
+4    Geography    88.0
+>>>
