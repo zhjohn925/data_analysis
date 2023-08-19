@@ -40,7 +40,9 @@ Pandas Type :                  | Native Python Type :                     | Desc
 
 
 Various DataSet: 
-   https://archive.ics.uci.edu/datasets
+   - https://archive.ics.uci.edu/datasets
+   - To get Yahoo finance library
+     $ pip install yfinance
     
 Auto as an example:
     https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data    
