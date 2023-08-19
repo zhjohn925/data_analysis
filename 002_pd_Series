@@ -19,9 +19,34 @@ dtype: int64
 # ----------------------------
 # deal with dict
 # ----------------------------
->>> d = {'a':3, 'b':5, 'c': 2}
->>> pd.Series(d)
-a    3
-b    5
-c    2
-dtype: int64
+>>> menu = {'Spaghetti': 12.99, 'Margherita Pizza': 14.99, 'Lasagna': 16.99, 'Tiramisu': 8.99, 'Bruschetta': 6.99}
+>>> menu_series = pd.Series(menu)
+>>> print(menu_series)
+Spaghetti           12.99
+Margherita Pizza    14.99
+Lasagna             16.99
+Tiramisu             8.99
+Bruschetta           6.99
+dtype: float64
+
+# ----------------------------
+# Series methods (use dir()) 
+# ----------------------------
+>>> menu_series.head(2)
+Spaghetti           12.99
+Margherita Pizza    14.99
+dtype: float64
+
+>>> menu_series.describe()
+count     5.000000
+mean     12.190000
+std       4.147288
+min       6.990000
+25%       8.990000
+50%      12.990000
+75%      14.990000
+max      16.990000
+dtype: float64
+
+>>> menu_series.mean()
+12.190000000000001
