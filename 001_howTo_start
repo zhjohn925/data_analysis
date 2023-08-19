@@ -67,7 +67,7 @@ df = pd.read_csv(url, index_col=6, header = None)   # specify which column as in
 
 #Replace default header by df.columns = headers
 headers = ["symboling", "normalized-losses", "make", "fuel-type", "aspiration", "num-of-doors", "body-style",
-           "drive-wheels", "enginie-location", "wheel-base", "length", "width", 'height", "curb-weight", "engine-type",
+           "drive-wheels", "enginie-location", "wheel-base", "length", "width", "height", "curb-weight", "engine-type",
            "num-of-cylinders", "engine-size", "fuel-system", "bore", "stroke", "compression-ratio", "horsepower", 
            "peak-rpm", "city-mpg", "highway-mpg", "price"]
            
