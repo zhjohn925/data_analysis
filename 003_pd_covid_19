@@ -4,4 +4,35 @@
               date      county       state     fips  cases  deaths
 0       2020-01-21   Snohomish  Washington  53061.0      1     0.0
 1       2020-01-22   Snohomish  Washington  53061.0      1     0.0
+>>> df.drop(['county'], axis=1, inplace=True)
+>>> df
+              date       state     fips  cases  deaths
+0       2020-01-21  Washington  53061.0      1     0.0
+1       2020-01-22  Washington  53061.0      1     0.0
+>>> df.rename(columns={'date':'Date', 'state':'State', 'fips':'Fips', 'cases':'Cases', 'deaths':'Deaths'}, inplace=True)
+              Date       State     Fips  Cases  Deaths
+0       2020-01-21  Washington  53061.0      1     0.0
+1       2020-01-22  Washington  53061.0      1     0.0
+>>> df['Date'] = pd.to_datetime(df['Date'])
+>>> df.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 884737 entries, 0 to 884736
+Data columns (total 5 columns):
+ #   Column  Non-Null Count   Dtype
+---  ------  --------------   -----
+ 0   Date    884737 non-null  datetime64[ns]
+ 1   State   884737 non-null  object
+ 2   Fips    876471 non-null  float64
+ 3   Cases   884737 non-null  int64
+ 4   Deaths  865976 non-null  float64
+dtypes: datetime64[ns](1), float64(2), int64(1), object(1)
+memory usage: 33.8+ MB
+>>> df.describe()
 
+>>> from sklearn.impute import SimpleImputer
+>>> imputer = SimpleImputer(strategy='constant')
+>>> df2 = pd.DataFrame(imputer.fit_transform(df), columns=df.columns)
+>>> df2
+             Date       State     Fips Cases Deaths
+0      2020-01-21  Washington  53061.0     1    0.0
+1      2020-01-22  Washington  53061.0     1    0.0
