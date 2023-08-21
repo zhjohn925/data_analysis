@@ -2,6 +2,8 @@
    http://pandas.pydata.org/
    $ pip install pandas
    $ pip install matplotlib 
+   $ pip install sklearn
+   $ pip install yfinance
 
 It gives:
    Information Graphics
@@ -44,6 +46,8 @@ Various DataSet:
    - https://archive.ics.uci.edu/datasets
    - To get Yahoo finance library
      $ pip install yfinance
+   - Covid 19 data
+     https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-2020.csv
     
 Auto as an example:
     https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data    
