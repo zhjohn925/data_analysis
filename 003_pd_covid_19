@@ -22,12 +22,42 @@ Data columns (total 5 columns):
 ---  ------  --------------   -----
  0   Date    884737 non-null  datetime64[ns]
  1   State   884737 non-null  object
- 2   Fips    876471 non-null  float64
+ 2   Fips    876471 non-null  float64         <== less number indicates some null values
  3   Cases   884737 non-null  int64
- 4   Deaths  865976 non-null  float64
+ 4   Deaths  865976 non-null  float64         <== less number indicates some null values  
 dtypes: datetime64[ns](1), float64(2), int64(1), object(1)
 memory usage: 33.8+ MB
 >>> df.describe()
+
+>>> df['Deaths'] = df['Deaths'].fillna(0.0)
+>>> df.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 884737 entries, 0 to 884736
+Data columns (total 5 columns):
+ #   Column  Non-Null Count   Dtype
+---  ------  --------------   -----
+ 0   Date    884737 non-null  object
+ 1   State   884737 non-null  object
+ 2   Fips    876471 non-null  float64   <== less number indicates some null values
+ 3   Cases   884737 non-null  int64
+ 4   Deaths  884737 non-null  float64   <== null was replaced with 0.0 
+dtypes: float64(2), int64(1), object(2)
+memory usage: 33.8+ MB
+
+>>> df.dropna(axis=0, inplace=True)       <== remove the rows with null values
+>>> df.info()
+<class 'pandas.core.frame.DataFrame'>
+Index: 876471 entries, 0 to 884736
+Data columns (total 5 columns):
+ #   Column  Non-Null Count   Dtype
+---  ------  --------------   -----
+ 0   Date    876471 non-null  object     <== number of rows are reduced since 
+ 1   State   876471 non-null  object     <== the rows with null were removed
+ 2   Fips    876471 non-null  float64
+ 3   Cases   876471 non-null  int64
+ 4   Deaths  876471 non-null  float64
+dtypes: float64(2), int64(1), object(2)
+memory usage: 40.1+ MB
 
 >>> from sklearn.impute import SimpleImputer
 >>> imputer = SimpleImputer(strategy='constant')
@@ -36,3 +66,42 @@ memory usage: 33.8+ MB
              Date       State     Fips Cases Deaths
 0      2020-01-21  Washington  53061.0     1    0.0
 1      2020-01-22  Washington  53061.0     1    0.0
+
+>>> df2.groupby(['State', 'Date']).sum()
+                         Fips  Cases Deaths
+State   Date
+Alabama 2020-03-13     5433.0      6    0.0
+        2020-03-14     6436.0     12    0.0
+        2020-03-15     8634.0     23    0.0
+        2020-03-16     8634.0     29    0.0
+        2020-03-17    10838.0     39    0.0
+...                       ...    ...    ...
+Wyoming 2020-12-27  1288529.0  43200  373.0
+        2020-12-28  1288529.0  43704  405.0
+        2020-12-29  1288529.0  43923  405.0
+        2020-12-30  1288529.0  44133  405.0
+        2020-12-31  1288529.0  44409  438.0
+
+[16231 rows x 3 columns]
+
+>>> df2.groupby('State')['Deaths'].sum()
+State
+Alabama                      526388.0
+Alaska                        13147.0
+Arizona                     1048714.0
+
+>>> df2.groupby('State', as_index=False)['Deaths'].sum()
+                       State     Deaths
+0                    Alabama   526388.0
+1                     Alaska    13147.0
+2                    Arizona  1048714.0
+3                   Arkansas   285862.0
+
+>>> df2.groupby('State')[['Deaths','Cases']].sum()
+                             Deaths      Cases
+State
+Alabama                    526388.0   32236000
+Alaska                      13147.0    2840318
+Arizona                   1048714.0   47147065
+Arkansas                   285862.0   18047631
+California                3065109.0  174969169
