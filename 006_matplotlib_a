@@ -1,0 +1,16 @@
+>>> import matplotlib.pyplot as plt
+>>> import numpy as np
+>>> x = np.linspace(0, 10, 1000)
+>>> plt.plot(x, np.sin(x))
+[<matplotlib.lines.Line2D object at 0x000002C23B27F0A0>]
+>>> plt.show()
+>>> y = np.sin(x)
+>>> plt.scatter(x[::10], y[::10], color='red')
+<matplotlib.collections.PathCollection object at 0x000002C23DD66F10>
+>>> plt.show()
+# draw sin and cos in the same plot
+# after show() is called, the plot is cleared
+>>> plt.plot(x, c, color='green')
+>>> plt.plot(x, y, color='blue')
+>>> plt.show()
+
