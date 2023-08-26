@@ -2,6 +2,7 @@
    http://pandas.pydata.org/
    $ pip install pandas
    $ pip install matplotlib 
+   $ pip install seaborn
    $ pip install scikit-learn
    $ pip install yfinance
 
