@@ -1,18 +1,16 @@
->>> import seaborn as sns
->>> import pandas as pd
->>> import numpy as np
->>> sns.set()
->>> x = pd.Series(50*np.random.randn(5000))
->>> x = pd.Series(200*np.random.randn(5000))
->>> x = pd.Series(100*np.random.randn(5000)+500)
->>> x = pd.Series(50*np.random.randn(5000))
->>> y = pd.Series(200*np.random.randn(5000))
->>> z = pd.Series(100*np.random.randn(5000)+500)
->>> data = pd.DataFrame({'X':x, 'Y':y, 'Z':z})
->>> data.head(2)
-           X           Y           Z
-0  -7.969104  119.560707  619.393310
-1  52.122068   47.987210  609.970294
->>> for col in data.columns :
-       plt.hist(data[col], density=True, alpha=0.5)
-...    sns.kdeplot(data[col], shade=True)
+import pandas as pd
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+
+sns.set()
+x = pd.Series(50*np.random.randn(5000))
+y = pd.Series(200*np.random.randn(5000))
+z = pd.Series(100*np.random.randn(5000)+500)
+
+df = pd.DataFrame({'X':x, 'Y':y, 'Z':z})
+
+for col in df.columns :
+    plt.hist(df[col], density=True, alpha=0.5)
+    sns.kdeplot(df[col], fill=True)
+plt.show()
