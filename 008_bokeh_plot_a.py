@@ -16,5 +16,6 @@ else :
     p.line(x, y1, legend_label="y=sin(x)")
     p.circle(x, x, legend_label="y=x", fill_color="green", size=5)
     p.line(x, y2, legend_label="y=cos", line_width=3, line_color="red")
+    p.triangle(x, x**2, color="black", legend_label="T")
 
 show(p)
