@@ -5,6 +5,7 @@
    $ pip install seaborn
    $ pip install scikit-learn
    $ pip install yfinance
+   $ pip install bokeh
 
 It gives:
    Information Graphics
