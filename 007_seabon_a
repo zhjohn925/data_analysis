@@ -2,15 +2,42 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
+import argparse
 
-sns.set()
-x = pd.Series(50*np.random.randn(5000))
-y = pd.Series(200*np.random.randn(5000))
-z = pd.Series(100*np.random.randn(5000)+500)
+if __name__ == "__main__" :
+    parser = argparse.ArgumentParser() 
+    plot_options = ['plt_hist', 'sns_hist', 'sns_kde', 'sns_joint', 'sns_iris']
+    parser.add_argument("plot_option", default='-', choices=plot_options, help="specify the way to plot")
+    args = parser.parse_args()
 
-df = pd.DataFrame({'X':x, 'Y':y, 'Z':z})
+    sns.set()
+    x = pd.Series(50*np.random.randn(5000))
+    y = pd.Series(200*np.random.randn(5000))
+    z = pd.Series(100*np.random.randn(5000)+500)
 
-for col in df.columns :
-    plt.hist(df[col], density=True, alpha=0.5)
-    sns.kdeplot(df[col], fill=True)
-plt.show()
+    df = pd.DataFrame({'X':x, 'Y':y, 'Z':z})
+
+    option = args.plot_option
+
+    if option == "plt_hist":
+        for col in df.columns :        
+            plt.hist(df[col], density=True, alpha=0.5)
+            # sns.kdeplot(df[col], fill=True)
+            # sns.histplot(df[col]) 
+    elif option == "sns_hist":
+        for col in df.columns :        
+            sns.histplot(df[col])      
+    elif option == "sns_kde":
+        for col in df.columns :        
+            sns.kdeplot(df[col], fill=True)
+    elif option == "sns_joint" :
+        with sns.axes_style('white') :
+            sns.jointplot(df, x='X', y='Y', color='blue', kind='kde')   
+    elif option == "sns_iris" :
+        iris = sns.load_dataset("iris")
+        # iris.head()
+        sns.pairplot(iris, hue='species')             
+    else :
+        pass
+
+    plt.show()
