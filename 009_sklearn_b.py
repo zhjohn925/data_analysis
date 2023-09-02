@@ -31,6 +31,15 @@ if __name__ == "__main__" :
             plt.show()
         elif ml_option in ["svc", "ensemble"] :
             from sklearn.model_selection import train_test_split
+            # The function splits the input data (X and y) into two subsets (X_train, y_train, and X_test, y_test) 
+            # according to the specified test size.
+            # You can then use X_train and y_train to train your machine learning model, and X_test (It is unseen data 
+            # that the model has not encountered during training.) to evaluate its performance on unseen data, 
+            # typically by measuring metrics like accuracy and etc.
+            # X:  This is the input feature data
+            # y:  This is the target variable or label data 
+            # test_size: indicates that 33% of the data will be reserved for testing, and the 
+            #            remaining 67% will be used for training.
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
             if ml_option == "svc" :
                 from sklearn.svm import SVC
