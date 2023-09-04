@@ -1,0 +1,53 @@
+---------------------------------------------
+Learning Path
+---------------------------------------------
+
+1. Python Programming.
+2. Data Wrangling - pandas and numpy.
+3. Visualization libraries such as matplotlib, seaborn, plotly, and mapbox.
+4. Statistics, probability and hypothesis testing.
+5. Dashboard creation using Google Data Studio.
+6. Machine learning algorithms such as linear regressions, logistics regressions, SVM, 
+   Naive Bayes, Random Forest and etc.
+7. Deep learning.
+8. Unsupervised learning where we create look at clusters and segmentation systems
+9. Big data using PySpark
+10. Deployment into production using Cloud Services (create an ML API)
+
+---------------------------------------------
+Data Analysts
+---------------------------------------------
+- Data analysts translate raw numbers into comprehensible reports and/or insights.
+- As we know, all businesses potentially collects data, from sales figures, market research, logistics, or transportation costs.
+- Data analysts take that data and use it to help companies make better business decisions.
+- They often can create simple visual illustrations and charts to convey the meaning in their data
+- This could mean figuring out trends in cash flow, how to schedule employees, optimal pricing and more.
+
+Examples: Analytics, Metrics, Segments, Aggregates, Features, Training Data,
+          Cleaning , Nomaly Detection, PREP.
+
+---------------------------------------------
+Data Engineers
+---------------------------------------------
+Data engineers connect all parts of the data ecosystem within a company or institution and make it accessible.
+- Accessing, collecting, auditing, and learning data from applications and
+  systems into a usable state (ETL pipelines).
+- Creating, choosing and maintaining efficient databases.
+- Building data pipelines taking data from one system to next.
+- Monitoring and managing all the data systems (scalability, security, DevOps)
+- Deploying Data Scientists' models.
+- They work with production and understand Big Data concepts.
+
+Examples: Reliable Data Flow, Infrastructure, Pipelines, ETL, Structured and Unstructured Data Storage,
+          Instrumentation, Logging, Sensors, External Data, User Generated Content.
+
+---------------------------------------------
+Data Scientists
+---------------------------------------------
+- Clean up and pre-process (data wrangling) data from various systems in usable data for use in their algorithms.
+- Using machine learning and deep learning to build better predictive models.
+- Evaluating statistical models and results to determine the validity of analysis.
+- Testing and continuously improving the accuracy of machine learning models.
+- Much like Data Analysts, Data Scientists building data visualizations to summarize the conclusion of an advanced analysis.
+
+Examples: AI, Deep Learning, A/B Testing, Experimentation, Simple ML Algorithms.
