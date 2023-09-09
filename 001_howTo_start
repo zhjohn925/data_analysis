@@ -7,6 +7,11 @@
    $ pip install yfinance
    $ pip install bokeh
 
+- Data Studio
+  0. lookerstudio.google.com/
+  1. tableau.com  from Salesforce
+  2. powerbi.microsoft.com/en-us/
+
 It gives:
    Information Graphics
    Information Visualization
